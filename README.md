@@ -26,8 +26,8 @@ A full-stack MERN (MongoDB, Express, React, Node.js) web application for trackin
 ## Folder Structure
 ```
 Exercise-app/
-│── app-frontend/        # Frontend (React + Vite)
-│── app-backend/        # Backend (Node.js + Express)
+│── app-frontend/        # Frontend (React + Vite + Tailwind CSS)
+│── app-backend/        # Backend (Node.js + Express + MoongoDB)
 │── README.md      # Project documentation
 │── .gitignore     # Git ignore file
 ```
