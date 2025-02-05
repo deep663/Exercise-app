@@ -1,7 +1,7 @@
-
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import bgImage from "../assets/images/bg-two-people.jpg";
 
 function Home() {
   return (
@@ -9,15 +9,18 @@ function Home() {
       <Header />
       <div
         className="relative h-screen bg-cover bg-center"
+        style={{ backgroundImage: `url(${bgImage})` }}
       >
         {/* Hero Section */}
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-2">
           <h1 className="text-4xl md:text-5xl text-white font-bold mb-4 uppercase">
             Mission Fitness
           </h1>
+          <p className="text-lg md:text-xl text-white">
+            Your fitness journey starts here. This is a <span className="text-red-500 font-semibold">60 days challenge</span>.
+          </p>
           <p className="text-lg md:text-xl text-white mb-8">
-            Your fitness journey starts here. Track your progress, complete
-            tasks, and stay motivated!
+            Track your progress, complete tasks, and stay motivated!
           </p>
 
           <Link

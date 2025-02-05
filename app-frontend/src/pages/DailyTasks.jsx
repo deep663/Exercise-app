@@ -44,7 +44,7 @@ const DailyTasks = () => {
   };
 
   const handleTaskComplete = async (name) => {
-    const isConfirmed = window.confirm(`Mark "${name}" as complete?`);
+    const isConfirmed = window.confirm(`Mark ${name} as complete?`);
 
     if (isConfirmed) {
       setLoading(true);
@@ -188,12 +188,13 @@ const DailyTasks = () => {
             </button>
 
             {/* Guide Content */}
-            <h2 className="text-2xl font-bold mb-4 text-red-600 text-center">
+            <h1 className="text-3xl font-bold mb-4">Workout Guide</h1>
+            <h2 className="text-2xl font-bold mb-4 text-orange-600 text-center">
               {guide.name}
             </h2>
             <ul className="list-disc list-inside space-y-2 p-2 bg-black rounded-lg">
               {guide.steps.map((step, index) => (
-                <li key={index} className="text-gray-300">
+                <li key={index} className="text-green-400">
                   {step}
                 </li>
               ))}

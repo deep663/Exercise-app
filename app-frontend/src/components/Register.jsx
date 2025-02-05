@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { register } from "../api/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaChevronLeft } from "react-icons/fa";
+import bgImage from "../assets/images/cover.jpg";
 
-const Register = (setIsRegistered) => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await register(username, email, password);
       alert("Registration successful!", response);
-      setIsRegistered(true);
+      navigate("/login");
 
     } catch (err) {
       console.log(err);
@@ -23,10 +28,23 @@ const Register = (setIsRegistered) => {
       }
       // console.log(err);
     }
+    setLoading(false);
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="flex flex-row gap-2">
+          <div className="w-4 h-4 rounded-full bg-red-700 animate-bounce"></div>
+          <div className="w-4 h-4 rounded-full bg-red-700 animate-bounce [animation-delay:-.3s]"></div>
+          <div className="w-4 h-4 rounded-full bg-red-700 animate-bounce [animation-delay:-.5s]"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center h-screen ">
+    <div style={{ backgroundImage: `url(${bgImage})`}} className="absolute inset-0 bg-cover bg-center bg-opacity-50 flex flex-col items-center justify-center h-screen ">
       <h1 className="text-4xl text-gray-100 font-bold mb-8">MISSION FITNESS</h1>
       <div className="bg-gray-900 p-6 rounded-md shadow-lg w-full max-w-sm">
         <h2 className="text-2xl font-bold mb-6 text-center text-white">Register</h2>
@@ -66,6 +84,7 @@ const Register = (setIsRegistered) => {
           </Link>
         </p>
       </div>
+      <button className="flex items-center gap-2 mt-4 text-white rounded-full py-1 px-3 bg-gray-800 hover:bg-gray-900" onClick={() => navigate("/")}><FaChevronLeft/>Back</button>
     </div>
   );
 };

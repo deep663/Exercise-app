@@ -2,9 +2,13 @@ import axios from "axios";
 
 const API_BASE_URL = "http://localhost:8000/api";
 
+
+axios.defaults.baseURL = "http://localhost:8000"
+axios.defaults.withCredentials = true;
+
 // User Authentication APIs
 export const login = async (email, password) =>
-  await axios.post(`${API_BASE_URL}/user/login`, { email, password }, { withCredentials: true });
+  await axios.post("api/user/login", { email, password }, { withCredentials: true });
 
 export const register = async (name, email, password) =>
   await axios.post(`${API_BASE_URL}/user/register`, { name, email, password });
