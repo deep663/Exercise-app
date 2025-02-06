@@ -45,7 +45,7 @@ const Register = () => {
 
   return (
     <div style={{ backgroundImage: `url(${bgImage})`}} className="absolute inset-0 bg-cover bg-center bg-opacity-50 flex flex-col items-center justify-center h-screen ">
-      <h1 className="text-4xl text-gray-100 font-bold mb-8">MISSION FITNESS</h1>
+      <h1 className="text-4xl md:text-5xl text-center text-gray-100 font-bold mb-8">MISSION FITNESS</h1>
       <div className="bg-gray-900 p-6 rounded-md shadow-lg w-full max-w-sm">
         <h2 className="text-2xl font-bold mb-6 text-center text-white">Register</h2>
         <form onSubmit={handleSubmit}>
